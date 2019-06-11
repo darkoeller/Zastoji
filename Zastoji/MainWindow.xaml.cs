@@ -30,11 +30,12 @@ namespace Zastoji
 
         private void IzracunajVrijeme_Click(object sender, RoutedEventArgs e)
         {
-            if (DTPocetnoVrijeme.Value == null || DTZavrnoVrijeme.Value == null)return;
+           Datum razlika = null;
+            if (DtPocetnoVrijeme.Value == null || DtZavrnoVrijeme.Value == null)return;
 
-              PocetnoVrijeme = (DateTime)DTPocetnoVrijeme.Value;             
-              ZavrsnoVrijeme= (DateTime)DTZavrnoVrijeme.Value;
-              var razlika = new RazlikaDatuma(PocetnoVrijeme, ZavrsnoVrijeme).VratiIzracun();
+              PocetnoVrijeme = (DateTime)DtPocetnoVrijeme.Value;             
+              ZavrsnoVrijeme= (DateTime)DtZavrnoVrijeme.Value;
+               razlika = new RazlikaDatuma(PocetnoVrijeme, ZavrsnoVrijeme).VratiIzracun();
             IspisiULabele(razlika);
             if (razlika.Dani > 0)
             {
@@ -49,17 +50,17 @@ namespace Zastoji
             
         }
 
-        private void IspisiULabele(Datum razlika)
-        {
-            LblDani.Content = razlika.Dani;
-            LblMinute.Content = razlika.Minute;
-            LblSati.Content = razlika.Sati;
-        }
+      private void IspisiULabele(Datum razlika)
+      {
+         LblDani.Content = razlika.Dani;
+         LblMinute.Content = razlika.Minute;
+         LblSati.Content = razlika.Sati;
+      }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+      private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DTPocetnoVrijeme.Value = DateTime.Now;
-            DTZavrnoVrijeme.Value = DateTime.Now;
+            DtPocetnoVrijeme.Value = DateTime.Now;
+            DtZavrnoVrijeme.Value = DateTime.Now;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Zastoji
 {
-    public struct Datum
+    public class Datum
     {
         public int Godine { get; }
         public int Mjeseci { get; }
@@ -13,6 +13,10 @@ namespace Zastoji
         public int Sati { get;}
         public int Minute { get;}
 
+        public Datum()
+        {
+            
+        }
 
         public Datum(int godine, int mjeseci, int dani, int sati, int minute)
         {

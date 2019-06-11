@@ -2,7 +2,7 @@
 
 namespace Zastoji
 {
-    class RazlikaDatuma
+    public class RazlikaDatuma
     {
         private readonly int[] _brojMjesecnihDana = {31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         private int _dani;
@@ -12,8 +12,6 @@ namespace Zastoji
         private DateTime _odDatuma;
         private int _sati;
         private int _minute;
-        //private DateTime? pocetnoVrijeme;
-        //private DateTime? zavrsnoVrijeme;
 
         public RazlikaDatuma(DateTime stariDatum, DateTime noviDatum)
         {
@@ -21,10 +19,8 @@ namespace Zastoji
             _doDatuma = noviDatum;
         }
 
-
-
-        public Datum VratiIzracun()
-        {
+         public Datum VratiIzracun()
+         {
             if (_odDatuma > _doDatuma)
             {
                 _odDatuma = _doDatuma;
@@ -41,7 +37,7 @@ namespace Zastoji
             IzracunajSatMinute();
             var vraćeniDatum = new Datum(_godine, _mjeseci, _dani, _sati, _minute);
             return vraćeniDatum;
-        }
+         }
 
         private void IzracunajSatMinute()
         {
@@ -63,7 +59,7 @@ namespace Zastoji
         {
             var povecaj = 0;
             if (_odDatuma.Day > _doDatuma.Day) povecaj = _brojMjesecnihDana[_odDatuma.Month - 1];
-            /// ako je mjesec veljača
+            // ako je mjesec veljača
             if (povecaj == -1) povecaj = DateTime.IsLeapYear(_odDatuma.Year) ? 29 : 28;
             if (povecaj != 0)
             {

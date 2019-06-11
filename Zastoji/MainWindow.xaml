@@ -23,27 +23,28 @@
                    Grid.ColumnSpan="3"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center" FontSize="24"
-                   >IZRAČUNAJTE VRIJEME ZASTOJA</TextBlock>
+                   >IZRAČUNAJTE VRIJEME ZASTOJA ILI RADA</TextBlock>
         <StackPanel Margin="30,0,0,0" Orientation="Vertical" Grid.Column="0" Grid.Row="1">
             <Label Content="Odaberite početno vrijeme zastoja:"></Label>
-           <xctk:DateTimePicker x:Name="DTPocetnoVrijeme"  
+           <xctk:DateTimePicker x:Name="DtPocetnoVrijeme"  
                              HorizontalAlignment="Left"  
                              VerticalAlignment="Top" 
-                             Width="200"
+                             Width="180"
                              Margin="0,15,0,0"   
-                             TimeFormat="ShortTime"
-                             FormatString="hh:mm"/>                               
+                             FormatString="dd.MM.yyyy. hh:mm" 
+                             CultureInfo="hr-HR" 
+                             Format="Custom" FontSize="14"/>                               
 
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
                         <Label Content="Odaberite završno vrijeme zastoja:"></Label>
-           <xctk:DateTimePicker x:Name="DTZavrnoVrijeme"  
+           <xctk:DateTimePicker x:Name="DtZavrnoVrijeme"  
                              HorizontalAlignment="Left"  
                              VerticalAlignment="Top" 
-                             Width="200"
+                             Width="180"
                              Margin="0,15,0,0"
-                             TimeFormat="ShortTime"
-                             FormatString="hh:mm"/> 
+                             Format="Custom"
+                             FormatString="dd.MM.yyyy. hh:mm" CultureInfo="hr-HR" FontSize="14"/> 
             <Button x:Name="IzracunajVrijeme" 
                     Content="Izračunaj razliku" 
                     VerticalAlignment="Bottom" 
