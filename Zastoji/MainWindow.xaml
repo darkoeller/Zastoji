@@ -1,0 +1,76 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zastoji"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Zastoji.MainWindow"
+        mc:Ignorable="d"
+        Title="Vrijeme zastoja" Height="450" Width="750" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" 
+                   Grid.Row="0" 
+                   Grid.ColumnSpan="3"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontSize="24"
+                   >IZRAČUNAJTE VRIJEME ZASTOJA</TextBlock>
+        <StackPanel Margin="30,0,0,0" Orientation="Vertical" Grid.Column="0" Grid.Row="1">
+            <Label Content="Odaberite početno vrijeme zastoja:"></Label>
+           <xctk:DateTimePicker x:Name="DTPocetnoVrijeme"  
+                             HorizontalAlignment="Left"  
+                             VerticalAlignment="Top" 
+                             Width="200"
+                             Margin="0,15,0,0"   
+                             TimeFormat="ShortTime"
+                             FormatString="hh:mm"/>                               
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                        <Label Content="Odaberite završno vrijeme zastoja:"></Label>
+           <xctk:DateTimePicker x:Name="DTZavrnoVrijeme"  
+                             HorizontalAlignment="Left"  
+                             VerticalAlignment="Top" 
+                             Width="200"
+                             Margin="0,15,0,0"
+                             TimeFormat="ShortTime"
+                             FormatString="hh:mm"/> 
+            <Button x:Name="IzracunajVrijeme" 
+                    Content="Izračunaj razliku" 
+                    VerticalAlignment="Bottom" 
+                    Click="IzracunajVrijeme_Click"
+                    Width="120"
+                    Margin="35,50,0,0"/>
+
+        </StackPanel>
+              <Label x:Name="Rezultat" Width="170" Margin="80,15,0,0" Foreground="Red" Grid.Column="1" Grid.Row="2" />
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+         <StackPanel Orientation="Vertical" Grid.Column="0">
+            <TextBlock HorizontalAlignment="Right" Margin="0,5,0,10">Dani:</TextBlock> 
+             <TextBlock HorizontalAlignment="Right" Margin="0,0,0,10">Sati:</TextBlock>
+             <TextBlock HorizontalAlignment="Right" >Minute:</TextBlock>
+         </StackPanel> 
+             <StackPanel Orientation="Vertical" Grid.Column="1">
+                 <Label x:Name="LblDani"/>
+                 <Label x:Name="LblSati"/>
+                 <Label x:Name="LblMinute"/>
+         </StackPanel>            
+        </Grid>
+    </Grid>
+</Window>
