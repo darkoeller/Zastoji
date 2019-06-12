@@ -6,32 +6,35 @@
         xmlns:local="clr-namespace:Zastoji"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Zastoji.MainWindow"
         mc:Ignorable="d"
-        Title="Vrijeme zastoja" Height="450" Width="750" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="Vrijeme zastoja / rada" Height="450" Width="750" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" 
                    Grid.Row="0" 
                    Grid.ColumnSpan="3"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="24"
+                   HorizontalAlignment="Center" 
+                   FontSize="16" 
+                   TextDecorations="Underline"
+                   Margin="0,10"
                    >IZRAČUNAJTE VRIJEME ZASTOJA ILI RADA</TextBlock>
         <StackPanel Margin="30,0,0,0" Orientation="Vertical" Grid.Column="0" Grid.Row="1">
             <Label Content="Odaberite početno vrijeme zastoja:"></Label>
            <xctk:DateTimePicker x:Name="DtPocetnoVrijeme"  
                              HorizontalAlignment="Left"  
                              VerticalAlignment="Top" 
-                             Width="180"
-                             Margin="0,15,0,0"   
-                             FormatString="dd.MM.yyyy. hh:mm" 
+                             Width="160"
+                             Margin="20,5,0,0"   
+                             FormatString="dd.MM.yyyy. HH:mm" 
                              CultureInfo="hr-HR" 
                              Format="Custom" FontSize="14"/>                               
 
@@ -41,19 +44,23 @@
            <xctk:DateTimePicker x:Name="DtZavrnoVrijeme"  
                              HorizontalAlignment="Left"  
                              VerticalAlignment="Top" 
-                             Width="180"
-                             Margin="0,15,0,0"
+                             Width="160"
+                             Margin="20,5,0,0"
                              Format="Custom"
-                             FormatString="dd.MM.yyyy. hh:mm" CultureInfo="hr-HR" FontSize="14"/> 
+                             FormatString="dd.MM.yyyy. HH:mm" CultureInfo="hr-HR" FontSize="14"/> 
             <Button x:Name="IzracunajVrijeme" 
                     Content="Izračunaj razliku" 
                     VerticalAlignment="Bottom" 
                     Click="IzracunajVrijeme_Click"
                     Width="120"
-                    Margin="35,50,0,0"/>
+                    Height="25"
+                    Margin="0,20,0,10"/>
 
         </StackPanel>
-              <Label x:Name="Rezultat" Width="170" Margin="80,15,0,0" Foreground="Red" Grid.Column="1" Grid.Row="2" />
+              <Label x:Name="Rezultat" Width="150" Margin="80,10,0,5" Foreground="Red" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" />
+               <Label Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" FontStyle="Italic" FontSize="10">Izradio: Darko Eller</Label>       
+       <xctk:Calculator Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" />
+        <Image Width="180" Height="180" Grid.Column="0" Grid.Row="2" Source="pack://siteoforigin:,,,/Resources/thinking.png"/>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -62,12 +69,12 @@
               <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-         <StackPanel Orientation="Vertical" Grid.Column="0">
+         <StackPanel Orientation="Vertical" Grid.Column="0" Height="90" VerticalAlignment="Top">
             <TextBlock HorizontalAlignment="Right" Margin="0,5,0,10">Dani:</TextBlock> 
              <TextBlock HorizontalAlignment="Right" Margin="0,0,0,10">Sati:</TextBlock>
              <TextBlock HorizontalAlignment="Right" >Minute:</TextBlock>
          </StackPanel> 
-             <StackPanel Orientation="Vertical" Grid.Column="1">
+             <StackPanel Orientation="Vertical" Grid.Column="1" Height="90" VerticalAlignment="Top">
                  <Label x:Name="LblDani"/>
                  <Label x:Name="LblSati"/>
                  <Label x:Name="LblMinute"/>

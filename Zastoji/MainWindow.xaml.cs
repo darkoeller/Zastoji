@@ -31,7 +31,7 @@ namespace Zastoji
         private void IzracunajVrijeme_Click(object sender, RoutedEventArgs e)
         {
            Datum razlika = null;
-            if (DtPocetnoVrijeme.Value == null || DtZavrnoVrijeme.Value == null)return;
+            if (DtPocetnoVrijeme.Value == null || DtZavrnoVrijeme.Value == null || DtPocetnoVrijeme.Value > DtZavrnoVrijeme.Value)return;
 
               PocetnoVrijeme = (DateTime)DtPocetnoVrijeme.Value;             
               ZavrsnoVrijeme= (DateTime)DtZavrnoVrijeme.Value;
@@ -52,9 +52,21 @@ namespace Zastoji
 
       private void IspisiULabele(Datum razlika)
       {
-         LblDani.Content = razlika.Dani;
-         LblMinute.Content = razlika.Minute;
-         LblSati.Content = razlika.Sati;
+             LblMinute.Content = razlika.Minute;
+            var sati = razlika.Sati;
+            var dani = razlika.Dani;
+            if (sati < 0)
+            {
+                dani = dani -1;
+                LblDani.Content = dani;
+                sati = (-24 - razlika.Sati) * (-1);
+                LblSati.Content = sati;
+            }
+            else
+            {
+            LblDani.Content = razlika.Dani;
+            LblSati.Content = razlika.Sati;
+            }
       }
 
       private void Window_Loaded(object sender, RoutedEventArgs e)
