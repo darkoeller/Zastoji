@@ -2,10 +2,6 @@
 {
    public class Datum
    {
-      public Datum()
-      {
-      }
-
       public Datum(int godine, int mjeseci, int dani, int sati, int minute)
       {
          Godine = godine;
@@ -15,8 +11,8 @@
          Minute = minute;
       }
 
-      public int Godine { get; }
-      public int Mjeseci { get; }
+      private int Godine { get; }
+      private int Mjeseci { get; }
       public int Dani { get; }
       public int Sati { get; }
       public int Minute { get; }

@@ -16,8 +16,8 @@ namespace Zastoji
          InitializeComponent();
       }
 
-      public DateTime PocetnoVrijeme { get; set; }
-      public DateTime ZavrsnoVrijeme { get; set; }
+      private DateTime PocetnoVrijeme { get; set; }
+      private DateTime ZavrsnoVrijeme { get; set; }
       public TimeSpan Razlika { get; set; }
 
       private void IzracunajVrijeme_Click(object sender, RoutedEventArgs e)
